@@ -39,3 +39,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(74, 222, 128, 0.45)',
   },
 });
+
+export default GlassCard;
