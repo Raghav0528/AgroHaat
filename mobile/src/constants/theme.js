@@ -45,3 +45,31 @@ export const SIZES = {
   radiusLg: 22,
   radiusFull: 9999,
 };
+
+export const THEME = {
+  colors: {
+    primary: COLORS.primary,
+    emerald: '#10b981',
+    bgDark: COLORS.bgDark,
+    bgCard: COLORS.bgCard,
+    textLight: '#ffffff',
+    textMuted: 'rgba(255, 255, 255, 0.65)',
+    borderGlass: COLORS.borderGlass,
+    customerBlue: COLORS.customerBlue,
+    customerLightBlue: COLORS.customerLightBlue,
+  },
+  spacing: {
+    xs: 4,
+    sm: 8,
+    md: 16,
+    lg: 20,
+    xl: 28,
+  },
+  borderRadius: {
+    sm: 8,
+    md: 14,
+    lg: 20,
+  },
+};
+
+export default THEME;

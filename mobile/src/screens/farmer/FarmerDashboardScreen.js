@@ -107,7 +107,7 @@ export default function FarmerDashboardScreen({ navigation }) {
       stageBadge: t('stage_2_badge'),
       title: t('tool_nutrient_title'),
       desc: t('tool_nutrient_desc'),
-      icon: 'spray-can-sparkles',
+      icon: 'spray-can',
       iconType: 'FontAwesome5',
       color: '#eab308',
       screen: 'SoilAnalysis',
