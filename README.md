@@ -423,7 +423,7 @@ Never expose API keys, database passwords, email passwords, or other secrets pub
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Neeraj-Sahni/Agro-Haat-AI-2.0.git
+
 ```
 
 Move into the project directory:
@@ -590,19 +590,8 @@ For production usage:
 - Restrict database permissions.
 - Keep dependencies updated.
 
----
 
-# 👨‍💻 Developer
 
-### Neeraj Sahni
-### Pranshu Gupta
-
-**B.Tech — Computer Science**  
-Noida Institute of Engineering and Technology (NIET), Greater Noida
-
-GitHub:  
-- https://github.com/Neeraj-Sahni
-- https://github.com/pranshu2810
 
 
 
