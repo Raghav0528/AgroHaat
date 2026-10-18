@@ -11,7 +11,7 @@ The platform connects **Farmers, Customers, AI Services, Market Information, and
 ## 🚀 Live Demo
 
 🌐 **Live Website:**  
-https://agro-haat-ai.onrender.com
+https://agrohaat-p46g.onrender.com/
 
 ---
 
