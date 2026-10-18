@@ -8,10 +8,31 @@ The platform connects **Farmers, Customers, AI Services, Market Information, and
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Demo & Mobile Application
 
 🌐 **Live Website:**  
-https://agrohaat-p46g.onrender.com/
+[https://agrohaat-p46g.onrender.com/](https://agrohaat-p46g.onrender.com/)
+
+---
+
+## 📱 Mobile App (Expo Go)
+
+Agro-Haat AI 2.0 now includes a native mobile app built with **React Native & Expo SDK 57** featuring glassmorphism UI, dual-role workflows (Farmer & Customer), and offline-resilient agricultural tooling.
+
+### 📲 Scan with Expo Go
+Scan the QR code below using the **Expo Go** app (Android / iOS) to launch the app directly:
+
+<div align="center">
+  <img src="images/expo_go_qr.png" width="280" alt="Agro-Haat AI 2.0 Expo Go QR Code" />
+  <p><b>Expo Go URL:</b> <code>exp://192.168.164.84:8081</code></p>
+</div>
+
+#### Quick Start (Mobile):
+```bash
+cd mobile
+npm install
+npx expo start -c
+```
 
 ---
 
@@ -591,9 +612,21 @@ For production usage:
 - Keep dependencies updated.
 
 
+---
 
+# 👨‍💻 Developers & Collaborators
 
+### Neeraj Sahni
+### Pranshu Gupta
+### Parv (parv-byte)
 
+**B.Tech — Computer Science**  
+Noida Institute of Engineering and Technology (NIET), Greater Noida
+
+GitHub:  
+- https://github.com/Neeraj-Sahni
+- https://github.com/pranshu2810
+- https://github.com/parv-byte
 
 ---
 
