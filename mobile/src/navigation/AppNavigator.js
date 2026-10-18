@@ -14,10 +14,14 @@ import RegisterScreen from '../screens/auth/RegisterScreen';
 
 // Farmer Screens
 import FarmerDashboardScreen from '../screens/farmer/FarmerDashboardScreen';
+import CropRecommendationScreen from '../screens/farmer/CropRecommendationScreen';
 import SoilAnalysisScreen from '../screens/farmer/SoilAnalysisScreen';
 import PestScannerScreen from '../screens/farmer/PestScannerScreen';
 import WeatherScreen from '../screens/farmer/WeatherScreen';
 import MandiPricesScreen from '../screens/farmer/MandiPricesScreen';
+import MachineryScreen from '../screens/farmer/MachineryScreen';
+import FarmerMarketplaceScreen from '../screens/farmer/FarmerMarketplaceScreen';
+import OrdersPayoutScreen from '../screens/farmer/OrdersPayoutScreen';
 
 // Customer Screens
 import CustomerDashboardScreen from '../screens/customer/CustomerDashboardScreen';
@@ -200,10 +204,14 @@ export default function AppNavigator() {
 
           {/* Farmer Sub-screens & Direct Stack Routes */}
           <Stack.Screen name="FarmerDashboard" component={FarmerDashboardScreen} />
+          <Stack.Screen name="CropRecommendation" component={CropRecommendationScreen} />
           <Stack.Screen name="SoilAnalysis" component={SoilAnalysisScreen} />
           <Stack.Screen name="PestScanner" component={PestScannerScreen} />
           <Stack.Screen name="Weather" component={WeatherScreen} />
           <Stack.Screen name="MandiPrices" component={MandiPricesScreen} />
+          <Stack.Screen name="Machinery" component={MachineryScreen} />
+          <Stack.Screen name="FarmerMarketplace" component={FarmerMarketplaceScreen} />
+          <Stack.Screen name="OrdersPayout" component={OrdersPayoutScreen} />
 
           {/* Customer Sub-screens & Direct Stack Routes */}
           <Stack.Screen name="CustomerDashboard" component={CustomerDashboardScreen} />

@@ -17,7 +17,8 @@ import { COLORS, SIZES } from '../../constants/theme';
 
 export default function FarmerDashboardScreen({ navigation }) {
   const { user, switchRole } = useAuth();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isHi = language === 'hi';
   const [selectedStage, setSelectedStage] = useState('all');
 
   const tools = [
@@ -64,7 +65,8 @@ export default function FarmerDashboardScreen({ navigation }) {
       icon: 'tractor',
       iconType: 'FontAwesome5',
       color: '#38bdf8',
-      screen: 'MandiPrices',
+      screen: 'Machinery',
+      params: { initialCategory: 'prep' },
     },
 
     // Stage 2
@@ -134,7 +136,7 @@ export default function FarmerDashboardScreen({ navigation }) {
       icon: 'storefront-outline',
       iconType: 'Ionicons',
       color: '#22c55e',
-      screen: 'MandiPrices',
+      screen: 'FarmerMarketplace',
     },
     {
       id: 'orders',
@@ -145,7 +147,7 @@ export default function FarmerDashboardScreen({ navigation }) {
       icon: 'receipt-outline',
       iconType: 'Ionicons',
       color: '#f59e0b',
-      screen: 'SoilAnalysis',
+      screen: 'OrdersPayout',
     },
     {
       id: 'harvester',
@@ -156,7 +158,8 @@ export default function FarmerDashboardScreen({ navigation }) {
       icon: 'truck-pickup',
       iconType: 'FontAwesome5',
       color: '#8b5cf6',
-      screen: 'MandiPrices',
+      screen: 'Machinery',
+      params: { initialCategory: 'harvest' },
     },
   ];
 
@@ -229,6 +232,38 @@ export default function FarmerDashboardScreen({ navigation }) {
 
           <TouchableOpacity
             style={styles.actionChip}
+            onPress={() => navigation.navigate('Machinery', { initialCategory: 'prep' })}
+          >
+            <FontAwesome5 name="tractor" size={14} color="#38bdf8" />
+            <Text style={styles.actionChipText}>{isHi ? 'मशीनरी' : 'Machinery'}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionChip}
+            onPress={() => navigation.navigate('FarmerMarketplace')}
+          >
+            <Ionicons name="storefront-outline" size={15} color="#22c55e" />
+            <Text style={styles.actionChipText}>{isHi ? 'डायरेक्ट बाज़ार' : 'Marketplace'}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionChip}
+            onPress={() => navigation.navigate('OrdersPayout')}
+          >
+            <Ionicons name="receipt-outline" size={15} color="#f59e0b" />
+            <Text style={styles.actionChipText}>{isHi ? 'ऑर्डर व पेआउट' : 'Orders'}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionChip}
+            onPress={() => navigation.navigate('CropRecommendation')}
+          >
+            <FontAwesome5 name="seedling" size={14} color="#22c55e" />
+            <Text style={styles.actionChipText}>{isHi ? 'फसल सुझाव' : 'Crops'}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionChip}
             onPress={() => navigation.navigate('SoilAnalysis')}
           >
             <Ionicons name="flask-outline" size={15} color="#f59e0b" />
@@ -236,27 +271,55 @@ export default function FarmerDashboardScreen({ navigation }) {
           </TouchableOpacity>
         </ScrollView>
 
-        {/* Stats Grid */}
-        <View style={styles.statsGrid}>
-          <GlassCard style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: COLORS.primaryLight }]}>12</Text>
-            <Text style={styles.statLabel}>{t('stat_active_products')}</Text>
-          </GlassCard>
+        {/* Stats Grid - Interactive (2 clean rows to prevent Android flexWrap overlap) */}
+        <View style={styles.statsContainer}>
+          <View style={styles.statsRow}>
+            <TouchableOpacity
+              style={styles.statTouch}
+              activeOpacity={0.85}
+              onPress={() => navigation.navigate('FarmerMarketplace')}
+            >
+              <GlassCard style={styles.statCard}>
+                <Text style={[styles.statNumber, { color: COLORS.primaryLight }]}>12</Text>
+                <Text style={styles.statLabel}>{t('stat_active_products')}</Text>
+              </GlassCard>
+            </TouchableOpacity>
 
-          <GlassCard style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: COLORS.customerLightBlue }]}>28</Text>
-            <Text style={styles.statLabel}>{t('stat_total_orders')}</Text>
-          </GlassCard>
+            <TouchableOpacity
+              style={styles.statTouch}
+              activeOpacity={0.85}
+              onPress={() => navigation.navigate('OrdersPayout')}
+            >
+              <GlassCard style={styles.statCard}>
+                <Text style={[styles.statNumber, { color: COLORS.customerLightBlue }]}>28</Text>
+                <Text style={styles.statLabel}>{t('stat_total_orders')}</Text>
+              </GlassCard>
+            </TouchableOpacity>
+          </View>
 
-          <GlassCard style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: COLORS.amber }]}>₹42,850</Text>
-            <Text style={styles.statLabel}>{t('stat_month_rev')}</Text>
-          </GlassCard>
+          <View style={styles.statsRow}>
+            <TouchableOpacity
+              style={styles.statTouch}
+              activeOpacity={0.85}
+              onPress={() => navigation.navigate('OrdersPayout')}
+            >
+              <GlassCard style={styles.statCard}>
+                <Text style={[styles.statNumber, { color: COLORS.amber }]}>₹42,850</Text>
+                <Text style={styles.statLabel}>{t('stat_month_rev')}</Text>
+              </GlassCard>
+            </TouchableOpacity>
 
-          <GlassCard style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: COLORS.violet }]}>142</Text>
-            <Text style={styles.statLabel}>{t('stat_units_sold')}</Text>
-          </GlassCard>
+            <TouchableOpacity
+              style={styles.statTouch}
+              activeOpacity={0.85}
+              onPress={() => navigation.navigate('OrdersPayout')}
+            >
+              <GlassCard style={styles.statCard}>
+                <Text style={[styles.statNumber, { color: COLORS.violet }]}>142</Text>
+                <Text style={styles.statLabel}>{t('stat_units_sold')}</Text>
+              </GlassCard>
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Stage Filter Tabs */}
@@ -302,28 +365,34 @@ export default function FarmerDashboardScreen({ navigation }) {
         {/* Tool Cards */}
         <View style={styles.toolCardsList}>
           {filteredTools.map((item) => (
-            <GlassCard key={item.id} style={styles.toolCard}>
-              <View style={styles.toolTopRow}>
-                <View style={[styles.toolIconBox, { backgroundColor: `${item.color}20`, borderColor: `${item.color}50` }]}>
-                  {renderIcon(item)}
+            <TouchableOpacity
+              key={item.id}
+              activeOpacity={0.88}
+              onPress={() => (item.params ? navigation.navigate(item.screen, item.params) : navigation.navigate(item.screen))}
+            >
+              <GlassCard style={styles.toolCard}>
+                <View style={styles.toolTopRow}>
+                  <View style={[styles.toolIconBox, { backgroundColor: `${item.color}20`, borderColor: `${item.color}50` }]}>
+                    {renderIcon(item)}
+                  </View>
+                  <View style={styles.stageTag}>
+                    <Text style={styles.stageTagText}>{item.stageBadge}</Text>
+                  </View>
                 </View>
-                <View style={styles.stageTag}>
-                  <Text style={styles.stageTagText}>{item.stageBadge}</Text>
-                </View>
-              </View>
 
-              <Text style={styles.toolTitle}>{item.title}</Text>
-              <Text style={styles.toolDesc}>{item.desc}</Text>
+                <Text style={styles.toolTitle}>{item.title}</Text>
+                <Text style={styles.toolDesc}>{item.desc}</Text>
 
-              <TouchableOpacity
-                style={[styles.toolBtn, { backgroundColor: item.color }]}
-                onPress={() => navigation.navigate(item.screen)}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.toolBtnText}>{t('btn_explore')}</Text>
-                <Feather name="arrow-right" size={14} color="#ffffff" />
-              </TouchableOpacity>
-            </GlassCard>
+                <TouchableOpacity
+                  style={[styles.toolBtn, { backgroundColor: item.color }]}
+                  onPress={() => (item.params ? navigation.navigate(item.screen, item.params) : navigation.navigate(item.screen))}
+                  activeOpacity={0.8}
+                >
+                  <Text style={styles.toolBtnText}>{t('btn_explore')}</Text>
+                  <Feather name="arrow-right" size={14} color="#ffffff" />
+                </TouchableOpacity>
+              </GlassCard>
+            </TouchableOpacity>
           ))}
         </View>
       </ScrollView>
@@ -427,16 +496,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
-  statsGrid: {
+  statsContainer: {
+    marginBottom: 24,
+    gap: 12,
+  },
+  statsRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-    marginBottom: 22,
+    gap: 12,
+  },
+  statTouch: {
+    flex: 1,
   },
   statCard: {
-    flex: 1,
-    minWidth: '47%',
-    padding: 14,
+    padding: 16,
     borderRadius: 16,
   },
   statNumber: {
